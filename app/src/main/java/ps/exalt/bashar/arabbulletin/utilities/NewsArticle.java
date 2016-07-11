@@ -10,14 +10,14 @@ import java.io.Serializable;
 public class NewsArticle implements Serializable {
     private String title;
     private String description;
-    private String url;
+    private String link;
     private String pubDate;
     private Bitmap image;
 
-    public NewsArticle(String title, String description, String url, String pubDate, Bitmap image) {
+    public NewsArticle(String title, String description, String link, String pubDate, Bitmap image) {
         this.title = title;
         this.description = description;
-        this.url = url;
+        this.link = link;
         this.pubDate = pubDate;
         this.image = image;
     }
@@ -38,12 +38,12 @@ public class NewsArticle implements Serializable {
         this.description = description;
     }
 
-    public String getUrl() {
-        return url;
+    public String getLink() {
+        return link;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getPubDate() {
@@ -67,7 +67,7 @@ public class NewsArticle implements Serializable {
         return "NewsArticle{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", url='" + url + '\'' +
+                ", link='" + link + '\'' +
                 ", pubDate='" + pubDate + '\'' +
                 ", image=" + image +
                 '}';
