@@ -3,8 +3,8 @@ package ps.exalt.bashar.arabbulletin.newsservices;
 import android.util.Log;
 
 import ps.exalt.bashar.arabbulletin.Constants;
+import ps.exalt.bashar.arabbulletin.models.NewsArticle;
 import ps.exalt.bashar.arabbulletin.utilities.NewsAPI;
-import ps.exalt.bashar.arabbulletin.utilities.NewsArticle;
 import ps.exalt.bashar.arabbulletin.utilities.NewsServicesCallback;
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -36,6 +36,7 @@ public class NewsResponse {
             public void success(NewsArticle data, Response response) {
                 Log.v("getNewsArticles: ", "Sucess");
                 Log.d(Constants.TAG, data.toString());
+                callback.onSuccess(data);
             }
 
             @Override

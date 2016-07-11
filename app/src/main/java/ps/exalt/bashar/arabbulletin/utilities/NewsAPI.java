@@ -1,5 +1,6 @@
 package ps.exalt.bashar.arabbulletin.utilities;
 
+import ps.exalt.bashar.arabbulletin.models.NewsArticle;
 import retrofit.Callback;
 import retrofit.http.GET;
 

@@ -2,17 +2,16 @@ package ps.exalt.bashar.arabbulletin;
 
 import android.app.Application;
 
-import java.util.List;
-
+import ps.exalt.bashar.arabbulletin.models.Item;
+import ps.exalt.bashar.arabbulletin.models.NewsArticle;
 import ps.exalt.bashar.arabbulletin.newsservices.NewsResponse;
-import ps.exalt.bashar.arabbulletin.utilities.NewsArticle;
 import ps.exalt.bashar.arabbulletin.utilities.NewsServicesCallback;
 
 /**
  * Created by Abdallah on 7/10/2016.
  */
 public class ApplicationClass extends Application implements NewsServicesCallback {
-    public static List<NewsArticle> newsList;
+    public static Item[] newsList;
 
     @Override
     public void onCreate() {
@@ -27,6 +26,6 @@ public class ApplicationClass extends Application implements NewsServicesCallbac
 
     @Override
     public void onSuccess(NewsArticle newsArticle) {
-
+        newsList = newsArticle.getRss().getChannel().getItem();
     }
 }

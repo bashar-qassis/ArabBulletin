@@ -1,5 +1,7 @@
 package ps.exalt.bashar.arabbulletin.utilities;
 
+import ps.exalt.bashar.arabbulletin.models.NewsArticle;
+
 /**
  * Created by Bashar on 7/10/2016.
  */
