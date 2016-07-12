@@ -1,7 +1,5 @@
 package ps.exalt.bashar.arabbulletin.models;
 
-import org.simpleframework.xml.Element;
-
 import java.io.Serializable;
 
 /**
@@ -17,9 +15,6 @@ public class Item implements Serializable {
     private String description;
 
     private String link;
-
-    @Element(name = "media:thumbnail")
-    private MediaThumbnail mediaThumbnail;
 
     public Guid getGuid() {
         return guid;
@@ -61,14 +56,6 @@ public class Item implements Serializable {
         this.link = link;
     }
 
-    public MediaThumbnail getMediaThumbnail() {
-        return mediaThumbnail;
-    }
-
-    public void setMediaThumbnail(MediaThumbnail mediaThumbnail) {
-        this.mediaThumbnail = mediaThumbnail;
-    }
-
     @Override
     public String toString() {
         return "Item{" +
@@ -77,7 +64,6 @@ public class Item implements Serializable {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", link='" + link + '\'' +
-                ", mediaThumbnail=" + mediaThumbnail +
                 '}';
     }
 }

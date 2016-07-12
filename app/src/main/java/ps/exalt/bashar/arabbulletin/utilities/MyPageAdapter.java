@@ -20,8 +20,10 @@ public class MyPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public android.support.v4.app.Fragment getItem(int pos) {
-
+        if (pos < ApplicationClass.newsList.length)
         return FragmentViewPager.newInstance(ApplicationClass.newsList[pos]);
+        else
+            return null;
     }
 
     @Override

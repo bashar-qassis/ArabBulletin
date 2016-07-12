@@ -1,6 +1,7 @@
 package ps.exalt.bashar.arabbulletin;
 
 import android.app.Application;
+import android.util.Log;
 
 import ps.exalt.bashar.arabbulletin.models.Item;
 import ps.exalt.bashar.arabbulletin.models.NewsArticle;
@@ -27,5 +28,6 @@ public class ApplicationClass extends Application implements NewsServicesCallbac
     @Override
     public void onSuccess(NewsArticle newsArticle) {
         newsList = newsArticle.getRss().getChannel().getItem();
+        Log.v("ArabBulletin: ", newsList.toString());
     }
 }
