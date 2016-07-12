@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import ps.exalt.bashar.arabbulletin.Constants;
 import ps.exalt.bashar.arabbulletin.R;
 import ps.exalt.bashar.arabbulletin.models.Item;
@@ -32,7 +34,7 @@ public class FragmentViewPager extends android.support.v4.app.Fragment {
         TextView descriptionTextView = (TextView) view.findViewById(R.id.description);
         TextView dateTextView = (TextView) view.findViewById(R.id.pubDate);
         if (article != null) {
-            //Picasso.with(getContext()).load(article.getMediaThumbnail().getUrl()).into(imageView);
+            Picasso.with(getContext()).load(article.getMediaThumbnail().getUrl()).into(imageView);
         }
         titleTextView.setText(article.getTitle());
         descriptionTextView.setText(article.getDescription());

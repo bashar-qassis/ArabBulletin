@@ -1,32 +1,48 @@
 package ps.exalt.bashar.arabbulletin.models;
 
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Root;
+
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Created by Bashar on 7/11/2016.
  */
+@Root
 public class Channel implements Serializable {
+    @Element
     private String title;
 
+    @Element
     private String managingEditor;
 
+    @Element
     private String description;
 
+    @Element
     private String link;
 
+    @Element
     private String lastBuildDate;
 
-    private Item[] item;
+    @ElementList(name = "item", inline = true)
+    private ArrayList<Item> item;
 
+    @Element
     private Image image;
 
+    @Element
     private String generator;
 
+    @Element
     private String copyright;
 
+    @Element
     private String language;
 
+    @Element
     private String ttl;
 
     public String getTitle() {
@@ -69,11 +85,11 @@ public class Channel implements Serializable {
         this.lastBuildDate = lastBuildDate;
     }
 
-    public Item[] getItem() {
+    public ArrayList<Item> getItem() {
         return item;
     }
 
-    public void setItem(Item[] item) {
+    public void setItem(ArrayList<Item> item) {
         this.item = item;
     }
 
@@ -125,7 +141,7 @@ public class Channel implements Serializable {
                 ", description='" + description + '\'' +
                 ", link='" + link + '\'' +
                 ", lastBuildDate='" + lastBuildDate + '\'' +
-                ", item=" + Arrays.toString(item) +
+                ", item=" + item +
                 ", image=" + image +
                 ", generator='" + generator + '\'' +
                 ", copyright='" + copyright + '\'' +

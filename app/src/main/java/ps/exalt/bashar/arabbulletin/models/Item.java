@@ -1,20 +1,34 @@
 package ps.exalt.bashar.arabbulletin.models;
 
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Namespace;
+import org.simpleframework.xml.Root;
+
 import java.io.Serializable;
 
 /**
  * Created by Bashar on 7/11/2016.
  */
+@Root(strict = false)
 public class Item implements Serializable {
+    @Element
     private Guid guid;
 
+    @Element
     private String pubDate;
 
+    @Element
     private String title;
 
+    @Element
     private String description;
 
+    @Element
     private String link;
+
+    @Element(name = "thumbnail", required = false)
+    @Namespace(prefix = "media", reference = "http://search.yahoo.com/mrss/")
+    private MediaThumbnail mediaThumbnail;
 
     public Guid getGuid() {
         return guid;
@@ -56,6 +70,14 @@ public class Item implements Serializable {
         this.link = link;
     }
 
+    public MediaThumbnail getMediaThumbnail() {
+        return mediaThumbnail;
+    }
+
+    public void setMediaThumbnail(MediaThumbnail mediaThumbnail) {
+        this.mediaThumbnail = mediaThumbnail;
+    }
+
     @Override
     public String toString() {
         return "Item{" +
@@ -64,6 +86,7 @@ public class Item implements Serializable {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", link='" + link + '\'' +
+                ", mediaThumbnail=" + mediaThumbnail +
                 '}';
     }
 }

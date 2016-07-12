@@ -1,7 +1,5 @@
 package ps.exalt.bashar.arabbulletin.models;
 
-import org.simpleframework.xml.Version;
-
 import java.io.Serializable;
 
 /**
@@ -9,7 +7,6 @@ import java.io.Serializable;
  */
 //@Root(strict=false)
 public class NewsArticle implements Serializable {
-    @Version(name = "2.0")
     private Rss rss;
 
     public Rss getRss() {

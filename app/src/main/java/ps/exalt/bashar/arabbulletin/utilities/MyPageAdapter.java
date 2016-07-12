@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import ps.exalt.bashar.arabbulletin.ApplicationClass;
 import ps.exalt.bashar.arabbulletin.fragments.FragmentViewPager;
+import ps.exalt.bashar.arabbulletin.ui.activities.MainActivity;
 
 /**
  * Created by Abdallah on 7/4/2016.
@@ -20,10 +20,13 @@ public class MyPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public android.support.v4.app.Fragment getItem(int pos) {
-        if (pos < ApplicationClass.newsList.length)
-        return FragmentViewPager.newInstance(ApplicationClass.newsList[pos]);
-        else
+        if (MainActivity.newsList == null)
             return null;
+        if (pos < MainActivity.newsList.size()) {
+            return FragmentViewPager.newInstance(MainActivity.newsList.get(pos));
+        } else {
+            return null;
+        }
     }
 
     @Override

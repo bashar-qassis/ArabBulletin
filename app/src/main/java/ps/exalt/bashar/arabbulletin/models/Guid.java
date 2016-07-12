@@ -1,10 +1,13 @@
 package ps.exalt.bashar.arabbulletin.models;
 
+import org.simpleframework.xml.Root;
+
 import java.io.Serializable;
 
 /**
  * Created by Bashar on 7/11/2016.
  */
+@Root(strict = false)
 public class Guid implements Serializable {
     private String content;
 

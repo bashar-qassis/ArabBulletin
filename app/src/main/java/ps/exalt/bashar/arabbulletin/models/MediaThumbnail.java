@@ -1,5 +1,7 @@
 package ps.exalt.bashar.arabbulletin.models;
 
+import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 import java.io.Serializable;
@@ -7,12 +9,16 @@ import java.io.Serializable;
 /**
  * Created by Bashar on 7/11/2016.
  */
-@Root(name = "Media:thumbnail")
+@Root(name = "thumbnail")
+@Namespace(prefix = "media", reference = "http://search.yahoo.com/mrss/")
 public class MediaThumbnail implements Serializable {
+    @Attribute
     private String height;
 
+    @Attribute
     private String width;
 
+    @Attribute
     private String url;
 
     public String getHeight() {
