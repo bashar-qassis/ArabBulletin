@@ -1,7 +1,7 @@
 package ps.exalt.bashar.arabbulletin.utilities;
 
 import ps.exalt.bashar.arabbulletin.models.NewsArticle;
-import retrofit.Callback;
+import retrofit.Call;
 import retrofit.http.GET;
 
 /**
@@ -12,5 +12,5 @@ public interface NewsAPI {
        And our method that will return us the list ob Book
     */
     @GET("/arabic/rss.xml")
-    void getNewsArticles(Callback<NewsArticle> newsArticle);
+    Call<NewsArticle> getNewsArticles();
 }
