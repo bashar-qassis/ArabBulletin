@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity implements NewsServicesCallb
     public void onSuccess(Rss rss) {
         newsList = rss.getChannel().getItem();
         Log.v("ArabBulletin: ", newsList.toString());
-
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setOffscreenPageLimit(0);
-        viewPager.setAdapter(new MyPageAdapter(getSupportFragmentManager(), this));
+        viewPager.setOffscreenPageLimit(50);
+        MyPageAdapter adapterView = new MyPageAdapter(getSupportFragmentManager(), this);
+        viewPager.setAdapter(adapterView);
     }
 }

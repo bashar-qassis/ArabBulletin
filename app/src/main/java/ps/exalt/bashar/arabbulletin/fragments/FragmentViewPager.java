@@ -1,5 +1,7 @@
 package ps.exalt.bashar.arabbulletin.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import ps.exalt.bashar.arabbulletin.models.Item;
  * Created by Abdallah on 7/4/2016.
  */
 public class FragmentViewPager extends android.support.v4.app.Fragment {
+    private String url;
     public static FragmentViewPager newInstance(Item article) {
         FragmentViewPager f = new FragmentViewPager();
         Bundle bundle = new Bundle();
@@ -33,13 +36,21 @@ public class FragmentViewPager extends android.support.v4.app.Fragment {
         TextView titleTextView = (TextView) view.findViewById(R.id.title);
         TextView descriptionTextView = (TextView) view.findViewById(R.id.description);
         TextView dateTextView = (TextView) view.findViewById(R.id.pubDate);
-        if (article != null) {
-            Picasso.with(getContext()).load(article.getMediaThumbnail().getUrl()).into(imageView);
+
+        url = article.getLink();
+
+        if (article.getMediaThumbnail() != null) {
+            Picasso.with(getContext()).load(article.getMediaThumbnail().getUrl()).resize(600, 300).into(imageView);
         }
         titleTextView.setText(article.getTitle());
         descriptionTextView.setText(article.getDescription());
         dateTextView.setText(article.getPubDate());
         return view;
+    }
+
+    public void openUrl() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(intent);
     }
 
 }

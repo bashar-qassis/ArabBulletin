@@ -19,19 +19,17 @@ public class MyPageAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public android.support.v4.app.Fragment getItem(int pos) {
-        if (MainActivity.newsList == null)
-            return null;
+    public FragmentViewPager getItem(int pos) {
         if (pos < MainActivity.newsList.size()) {
             return FragmentViewPager.newInstance(MainActivity.newsList.get(pos));
         } else {
-            return null;
+            return FragmentViewPager.newInstance(MainActivity.newsList.get(0));
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return MainActivity.newsList.size();
     }
 
 }
